@@ -61,11 +61,19 @@ const countBs = (str, find_letter = 'b') => {
 
 //console.log(countBs('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet diam enim, et suscipit nunc dictum eget. Aenean fermentum rhoncus augue sit amet auctor. Etiam maximus erat nisi, et luctus magna pretium sed. Sed vehicula lacus hendrerit, sodales odio et, tincidunt purus. Ut in risus sed ligula commodo venenatis eget eget dui. Etiam tellus est, iaculis sed rutrum ut, suscipit in velit. Morbi eleifend pretium porttitor.', 'c'));
 
-const myRange = (start, end) => {
+const myRange = (start, end, step) => {
     let myArr = [];
-    for (let i=start; i <= end; i++) {
-        myArr.push(i);
+    for (let i = start; i <= end; i++) {
+        if (step) {
+            if (i % step == 0) {
+                myArr.push(i);
+            }
+        } else {
+            myArr.push(i);
+        }
+
     }
+
     return myArr;
 }
 
@@ -77,4 +85,4 @@ const mySum = (rangeArr) => {
     return sum;
 }
 
-console.log(mySum(myRange(0,6)));
+console.log(mySum(myRange(0, 6, 2)));
